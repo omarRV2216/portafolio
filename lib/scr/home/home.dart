@@ -68,6 +68,7 @@ class _HomeState extends State<Home> {
     return MaterialApp(
       theme: themeData,
       home: Scaffold(
+        backgroundColor: _isDarkMode ? Colors.grey[900] : Colors.white, // 👈 Fondo general
         appBar: CustomAppBar(
           sections: _sections,
           onSectionSelected: _onSelectionSelected,
@@ -96,38 +97,127 @@ class _HomeState extends State<Home> {
     return Container(
       key: _sectionKeys["Inicio"],
       height: MediaQuery.of(context).size.height,
-      color: _isDarkMode ? Colors.grey[900] : Colors.blue[50],
-      padding: const EdgeInsets.all(20),
+      color: _isDarkMode ? Colors.grey[900] : Colors.white, // 👈 Fondo unificado
+      padding: const EdgeInsets.all(10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const CircleAvatar(
-            radius: 60,
-            backgroundImage: NetworkImage(''),
-          ),
-          const SizedBox(height: 20),
-          Text(
-            "¡Hola! Soy [Tu Nombre]",
-            style: TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
-              color: _isDarkMode ? Colors.white : Colors.black,
+          // Foto de perfil arriba
+          Container(
+            width: 200,
+            height: 200,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: _isDarkMode
+                      ? Colors.white.withOpacity(0.1)
+                      : Colors.blue.withOpacity(0.2),
+                  blurRadius: 20,
+                  spreadRadius: 2,
+                ),
+              ],
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: _isDarkMode
+                    ? [Colors.grey[800]!, Colors.grey[600]!]
+                    : [Colors.blue[300]!, Colors.blue[100]!],
+              ),
+            ),
+            child: ClipOval(
+              child: Image.asset(
+                "images/img.png",
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-          const SizedBox(height: 10),
-          Text(
-            "Desarrollador Flutter",
-            style: TextStyle(
-              fontSize: 18,
-              color: _isDarkMode ? Colors.grey[400] : Colors.grey,
-            ),
-          ),
-          const SizedBox(height: 30),
-          ElevatedButton(
-            onPressed: () {
-              _onSelectionSelected("Proyectos");
-            },
-            child: const Text("Ver mis proyectos"),
+
+          const SizedBox(height: 40),
+
+          // Contenido textual abajo
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                "¡Hola!",
+                style: TextStyle(
+                  fontSize: 42,
+                  fontWeight: FontWeight.w300,
+                  color: _isDarkMode ? Colors.white : Colors.black,
+                  letterSpacing: -1,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                "Soy Omar Aldair",
+                style: TextStyle(
+                  fontSize: 48,
+                  fontWeight: FontWeight.w700,
+                  color: _isDarkMode ? Colors.white : Colors.black,
+                  letterSpacing: -0.5,
+                ),
+              ),
+              const SizedBox(height: 12),
+              ShaderMask(
+                shaderCallback: (bounds) => LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: _isDarkMode
+                      ? [Colors.blue[300]!, Colors.purple[300]!]
+                      : [Colors.blue[600]!, Colors.purple[600]!],
+                ).createShader(bounds),
+                child: Text(
+                  "Desarrollador FullStack",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                    letterSpacing: 0.5,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 30),
+              ElevatedButton(
+                onPressed: () {
+                  _onSelectionSelected("Proyectos");
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 14),
+                  backgroundColor: _isDarkMode ? Colors.white : Colors.black,
+                  foregroundColor: _isDarkMode ? Colors.black : Colors.white,
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    side: BorderSide(
+                      color: _isDarkMode
+                          ? Colors.white.withOpacity(0.2)
+                          : Colors.black.withOpacity(0.1),
+                      width: 1,
+                    ),
+                  ),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Text(
+                      "Ver mis proyectos",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Icon(
+                      Icons.arrow_forward_rounded,
+                      size: 18,
+                      color: _isDarkMode ? Colors.black : Colors.white,
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -138,7 +228,7 @@ class _HomeState extends State<Home> {
     return Container(
       key: _sectionKeys["Sobre mi"],
       height: MediaQuery.of(context).size.height,
-      color: _isDarkMode ? Colors.grey[800] : Colors.green[50],
+      color: _isDarkMode ? Colors.grey[900] : Colors.white, // 👈 Fondo unificado
       padding: const EdgeInsets.all(40),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -200,7 +290,7 @@ class _HomeState extends State<Home> {
     return Container(
       key: _sectionKeys["Proyectos"],
       height: MediaQuery.of(context).size.height,
-      color: _isDarkMode ? Colors.grey[900] : Colors.orange[50],
+      color: _isDarkMode ? Colors.grey[900] : Colors.white, // 👈 Fondo unificado
       padding: const EdgeInsets.all(40),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -225,6 +315,7 @@ class _HomeState extends State<Home> {
   Widget _buildProjectCard(String title, String description) {
     return Card(
       color: _isDarkMode ? Colors.grey[800] : Colors.white,
+      elevation: 2, // 👈 Sombra sutil para dar profundidad
       margin: const EdgeInsets.symmetric(vertical: 10),
       child: ListTile(
         title: Text(
@@ -248,7 +339,7 @@ class _HomeState extends State<Home> {
     return Container(
       key: _sectionKeys["Habilidades"],
       height: MediaQuery.of(context).size.height,
-      color: _isDarkMode ? Colors.grey[800] : Colors.purple[50],
+      color: _isDarkMode ? Colors.grey[900] : Colors.white, // 👈 Fondo unificado
       padding: const EdgeInsets.all(40),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -295,7 +386,7 @@ class _HomeState extends State<Home> {
     return Container(
       key: _sectionKeys["Experiencia"],
       height: MediaQuery.of(context).size.height,
-      color: _isDarkMode ? Colors.grey[900] : Colors.red[50],
+      color: _isDarkMode ? Colors.grey[900] : Colors.white, // 👈 Fondo unificado
       padding: const EdgeInsets.all(40),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -317,21 +408,26 @@ class _HomeState extends State<Home> {
   }
 
   Widget _buildExperienceItem(String position, String company, String period) {
-    return ListTile(
-      title: Text(
-        position,
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          color: _isDarkMode ? Colors.white : Colors.black,
+    return Card(
+      color: _isDarkMode ? Colors.grey[800] : Colors.white,
+      elevation: 2, // 👈 Sombra sutil
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      child: ListTile(
+        title: Text(
+          position,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: _isDarkMode ? Colors.white : Colors.black,
+          ),
         ),
-      ),
-      subtitle: Text(
-        company,
-        style: TextStyle(color: _isDarkMode ? Colors.grey[400] : Colors.black),
-      ),
-      trailing: Text(
-        period,
-        style: TextStyle(color: _isDarkMode ? Colors.white : Colors.black),
+        subtitle: Text(
+          company,
+          style: TextStyle(color: _isDarkMode ? Colors.grey[400] : Colors.black),
+        ),
+        trailing: Text(
+          period,
+          style: TextStyle(color: _isDarkMode ? Colors.white : Colors.black),
+        ),
       ),
     );
   }
@@ -340,7 +436,7 @@ class _HomeState extends State<Home> {
     return Container(
       key: _sectionKeys["Contacto"],
       height: MediaQuery.of(context).size.height,
-      color: _isDarkMode ? Colors.grey[800] : Colors.teal[50],
+      color: _isDarkMode ? Colors.grey[900] : Colors.white, // 👈 Fondo unificado
       padding: const EdgeInsets.all(40),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
