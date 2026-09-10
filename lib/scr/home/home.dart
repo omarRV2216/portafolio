@@ -622,8 +622,8 @@ class _HomeState extends State<Home> {
                             width: double.infinity,
                             height: 150, // 👈 Altura más grande para mejor visualización
                             child: Image.asset(
-                              "images/footer_logo.png",
-                              fit: BoxFit.contain, // 👈 Cambiado a 'contain' para que no se corte
+                              "assets/images/footer_logo.png",
+                              fit: BoxFit.contain,
                               errorBuilder: (context, error, stackTrace) {
                                 return Container(
                                   color: Colors.grey[300],
@@ -634,7 +634,7 @@ class _HomeState extends State<Home> {
                                   ),
                                 );
                               },
-                            ),
+                            )
                           ),
                           company: "EcoBrush",
                           position: "Desarrollador Flutter Senior",
