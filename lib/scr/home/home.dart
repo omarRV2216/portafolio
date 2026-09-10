@@ -641,7 +641,7 @@ class _HomeState extends State<Home> {
                           period: "2023 - Presente",
                           description:
                           "Lideré el desarrollo de aplicaciones móviles multiplataforma con Flutter, implementando arquitectura MVC y optimizando el rendimiento.",
-                          url: "http://ecobrush.com.mx/",
+                          url: "https://ecobrush.mx",
                           icon: Icons.work,
                           color: Colors.blue,
                           technologies: ["Flutter", "Dart", "Firebase", "Git"],
@@ -716,7 +716,8 @@ class _HomeState extends State<Home> {
     required Color color,
     required List<String> technologies,
     Widget? logo, // 👈 Logo opcional
-  }) {
+  })
+  {
     // Verificar si tiene URL para hacerla clicable
     final bool hasUrl = url.isNotEmpty;
 

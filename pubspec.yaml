@@ -53,10 +53,11 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   uses-material-design: true
-assets:
-  - assets/images/icon_flutter.png
-  - assets/images/img.png
-  - assets/images/footer_logo.png
+
+  assets:
+    - images/icon_flutter.png
+    - images/img.png
+    - images/footer_logo.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
