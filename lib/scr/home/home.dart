@@ -86,6 +86,9 @@ class _HomeState extends State<Home> {
     );
   }
 
+  // ============================================================
+  // SECCIÓN: INICIO
+  // ============================================================
   Widget _buildHomeContent() {
     return Container(
       key: _sectionKeys["Inicio"],
@@ -214,6 +217,9 @@ class _HomeState extends State<Home> {
     );
   }
 
+  // ============================================================
+  // SECCIÓN: SOBRE MI
+  // ============================================================
   Widget _buildAboutMeContent() {
     return Container(
       key: _sectionKeys["Sobre mi"],
@@ -352,6 +358,9 @@ class _HomeState extends State<Home> {
     );
   }
 
+  // ============================================================
+  // SECCIÓN: HABILIDADES
+  // ============================================================
   Widget _buildSkillsContent() {
     return Container(
       key: _sectionKeys["Habilidades"],
@@ -555,6 +564,9 @@ class _HomeState extends State<Home> {
     );
   }
 
+  // ============================================================
+  // SECCIÓN: EXPERIENCIA
+  // ============================================================
   Widget _buildExperienceContent() {
     return Container(
       key: _sectionKeys["Experiencia"],
@@ -595,13 +607,13 @@ class _HomeState extends State<Home> {
                   Row(
                     children: [
                       Expanded(
-                        child: ExperienceCard(
+                        child: _buildExperienceCard(
                           isDarkMode: _isDarkMode,
                           logo: Container(
                             width: double.infinity,
                             height: 150,
                             child: Image.asset(
-                              "images/footer_logo.png",
+                              "assets/images/footer_logo.png",
                               fit: BoxFit.contain,
                               errorBuilder: (context, error, stackTrace) {
                                 return Container(
@@ -636,13 +648,13 @@ class _HomeState extends State<Home> {
                       ),
                       const SizedBox(width: 20),
                       Expanded(
-                        child: ExperienceCard(
+                        child: _buildExperienceCard(
                           isDarkMode: _isDarkMode,
                           logo: Container(
                             width: double.infinity,
                             height: 150,
                             child: Image.asset(
-                              "images/footer_logo.png",
+                              "assets/images/footer_logo.png",
                               fit: BoxFit.contain,
                               errorBuilder: (context, error, stackTrace) {
                                 return Container(
@@ -680,27 +692,48 @@ class _HomeState extends State<Home> {
                   Row(
                     children: [
                       Expanded(
-                        child: ExperienceCard(
+                        child: _buildExperienceCard(
                           isDarkMode: _isDarkMode,
-                          company: "Amazon",
-                          position: "Backend Developer",
-                          period: "2021 - 2022",
+                          logo: Container(
+                            width: double.infinity,
+                            height: 150,
+                            child: Image.asset(
+                              "assets/images/footer_logo.png",
+                              fit: BoxFit.contain,
+                              errorBuilder: (context, error, stackTrace) {
+                                return Container(
+                                  color: Colors.grey[300],
+                                  child: const Icon(
+                                    Icons.image_not_supported,
+                                    color: Colors.grey,
+                                    size: 40,
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                          company: "EcoBrush - Page",
+                          position: "Desarrollador FullStack",
                           description:
-                          "Diseñé e implementé microservicios escalables con Laravel, optimizando consultas SQL y mejorando el rendimiento de la base de datos.",
-                          url: "",
-                          icon: Icons.cloud,
-                          color: Colors.orange,
+                          "Lideré el desarrollo y la mejora continua de la plataforma web de EcoBrush, "
+                              "gestionando la comunicación directa con clientes, coordinando reuniones de levantamiento "
+                              "de requerimientos y proponiendo iniciativas de mejora para optimizar la experiencia del usuario"
+                              " y los procesos internos.",
+                          url: "https://ecobrush.mx",
+                          icon: Icons.work,
+                          color: Colors.blue,
                           technologies: const [
-                            "PHP",
-                            "Laravel",
-                            "MariaDB",
-                            "Redis"
+                            "Flutter",
+                            "Dart",
+                            "Firebase",
+                            "Git"
                           ],
+                          period: '2025',
                         ),
                       ),
                       const SizedBox(width: 20),
                       Expanded(
-                        child: ExperienceCard(
+                        child: _buildExperienceCard(
                           isDarkMode: _isDarkMode,
                           company: "Tesla",
                           position: "Frontend Developer",
@@ -728,92 +761,36 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-}
 
-// ============================================================
-// WIDGET ExperienceCard CON "LEER MÁS / LEER MENOS"
-// ============================================================
-class ExperienceCard extends StatefulWidget {
-  final Widget? logo;
-  final String company;
-  final String position;
-  final String period;
-  final String description;
-  final String url;
-  final IconData icon;
-  final Color color;
-  final List<String> technologies;
-  final bool isDarkMode;
-
-  const ExperienceCard({
-    super.key,
-    this.logo,
-    required this.company,
-    required this.position,
-    required this.period,
-    required this.description,
-    required this.url,
-    required this.icon,
-    required this.color,
-    required this.technologies,
-    required this.isDarkMode,
-  });
-
-  @override
-  State<ExperienceCard> createState() => _ExperienceCardState();
-}
-
-class _ExperienceCardState extends State<ExperienceCard> {
-  bool _expanded = false;
-
-  void _launchUrl(String url) {
-    if (url.isEmpty) return;
-    if (!url.startsWith('http://') && !url.startsWith('https://')) {
-      url = 'https://$url';
-    }
-    html.window.open(url, '_blank');
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final bool hasUrl = widget.url.isNotEmpty;
-    final bool dark = widget.isDarkMode;
-
-    Widget techChip(String tech) {
-      return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        decoration: BoxDecoration(
-          color: dark
-              ? widget.color.withOpacity(0.2)
-              : widget.color.withOpacity(0.08),
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-            color: widget.color.withOpacity(0.3),
-            width: 0.8,
-          ),
-        ),
-        child: Text(
-          tech,
-          style: TextStyle(
-            fontSize: 11,
-            color: dark ? Colors.white : widget.color,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      );
-    }
+  // ============================================================
+  // TARJETA DE EXPERIENCIA (antes en ExperienceCard.dart)
+  // ============================================================
+  Widget _buildExperienceCard({
+    required bool isDarkMode,
+    required String company,
+    required String position,
+    required String period,
+    required String description,
+    required String url,
+    required IconData icon,
+    required Color color,
+    required List<String> technologies,
+    Widget? logo,
+  })
+  {
+    final bool hasUrl = url.isNotEmpty;
 
     Widget cardContent = Container(
       decoration: BoxDecoration(
-        color: dark ? Colors.grey[850] : Colors.white,
+        color: isDarkMode ? Colors.grey[850] : Colors.white,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: dark ? Colors.grey[700]! : Colors.grey[200]!,
+          color: isDarkMode ? Colors.grey[700]! : Colors.grey[200]!,
           width: 1,
         ),
         boxShadow: [
           BoxShadow(
-            color: dark
+            color: isDarkMode
                 ? Colors.black.withOpacity(0.3)
                 : Colors.grey.withOpacity(0.08),
             blurRadius: 10,
@@ -824,7 +801,8 @@ class _ExperienceCardState extends State<ExperienceCard> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (widget.logo != null) ...[
+          // Imagen superior
+          if (logo != null) ...[
             ClipRRect(
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(16),
@@ -833,25 +811,27 @@ class _ExperienceCardState extends State<ExperienceCard> {
               child: SizedBox(
                 width: double.infinity,
                 height: 120,
-                child: widget.logo,
+                child: logo,
               ),
             ),
           ],
+
+          // Contenido
           Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // Encabezado
                 Row(
                   children: [
                     Container(
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        color: widget.color.withOpacity(0.15),
+                        color: color.withOpacity(0.15),
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Icon(widget.icon,
-                          color: widget.color, size: 24),
+                      child: Icon(icon, color: color, size: 24),
                     ),
                     const SizedBox(width: 12),
                     Expanded(
@@ -862,11 +842,13 @@ class _ExperienceCardState extends State<ExperienceCard> {
                             children: [
                               Expanded(
                                 child: Text(
-                                  widget.company,
+                                  company,
                                   style: TextStyle(
                                     fontSize: 17,
                                     fontWeight: FontWeight.bold,
-                                    color: dark ? Colors.white : Colors.black,
+                                    color: isDarkMode
+                                        ? Colors.white
+                                        : Colors.black,
                                   ),
                                   overflow: TextOverflow.ellipsis,
                                 ),
@@ -875,17 +857,17 @@ class _ExperienceCardState extends State<ExperienceCard> {
                                 const SizedBox(width: 8),
                                 Icon(
                                   Icons.open_in_new,
-                                  color: widget.color,
+                                  color: color,
                                   size: 16,
                                 ),
                               ],
                             ],
                           ),
                           Text(
-                            widget.position,
+                            position,
                             style: TextStyle(
                               fontSize: 13,
-                              color: dark
+                              color: isDarkMode
                                   ? Colors.grey[400]
                                   : Colors.grey[600],
                             ),
@@ -897,94 +879,52 @@ class _ExperienceCardState extends State<ExperienceCard> {
                   ],
                 ),
                 const SizedBox(height: 12),
+
+                // Período
                 Row(
                   children: [
                     Icon(
                       Icons.calendar_today,
-                      color: dark ? Colors.grey[500] : Colors.grey[400],
+                      color:
+                      isDarkMode ? Colors.grey[500] : Colors.grey[400],
                       size: 14,
                     ),
                     const SizedBox(width: 6),
                     Text(
-                      widget.period,
+                      period,
                       style: TextStyle(
                         fontSize: 12,
-                        color: dark ? Colors.grey[400] : Colors.grey[500],
+                        color: isDarkMode
+                            ? Colors.grey[400]
+                            : Colors.grey[500],
                       ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 10),
 
-                // ==============================
-                // DESCRIPCIÓN CON LEER MÁS
-                // ==============================
-                AnimatedCrossFade(
-                  duration: const Duration(milliseconds: 250),
-                  crossFadeState: _expanded
-                      ? CrossFadeState.showSecond
-                      : CrossFadeState.showFirst,
-                  firstChild: Text(
-                    widget.description,
-                    style: TextStyle(
-                      fontSize: 13,
-                      height: 1.5,
-                      color: dark ? Colors.grey[300] : Colors.grey[700],
-                    ),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
+                // Descripción
+                Text(
+                  description,
+                  style: TextStyle(
+                    fontSize: 13,
+                    height: 1.5,
+                    color: isDarkMode
+                        ? Colors.grey[300]
+                        : Colors.grey[700],
                   ),
-                  secondChild: Text(
-                    widget.description,
-                    style: TextStyle(
-                      fontSize: 13,
-                      height: 1.5,
-                      color: dark ? Colors.grey[300] : Colors.grey[700],
-                    ),
-                  ),
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
                 ),
+                const SizedBox(height: 12),
 
-                // Botón Leer más / Leer menos
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: TextButton(
-                    onPressed: () =>
-                        setState(() => _expanded = !_expanded),
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      minimumSize: const Size(0, 28),
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          _expanded ? "Leer menos" : "Leer más",
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: widget.color,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        Icon(
-                          _expanded
-                              ? Icons.keyboard_arrow_up
-                              : Icons.keyboard_arrow_down,
-                          color: widget.color,
-                          size: 16,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-
-                const SizedBox(height: 8),
-
+                // Tecnologías
                 Wrap(
                   spacing: 6,
                   runSpacing: 6,
-                  children:
-                  widget.technologies.map(techChip).toList(),
+                  children: technologies
+                      .map((tech) => _buildTechChip(tech, color))
+                      .toList(),
                 ),
               ],
             ),
@@ -995,11 +935,42 @@ class _ExperienceCardState extends State<ExperienceCard> {
 
     if (hasUrl) {
       return InkWell(
-        onTap: () => _launchUrl(widget.url),
+        onTap: () => _launchUrl(url),
         borderRadius: BorderRadius.circular(16),
         child: cardContent,
       );
     }
+
     return cardContent;
+  }
+
+  Widget _buildTechChip(String tech, Color color) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      decoration: BoxDecoration(
+        color: _isDarkMode ? color.withOpacity(0.2) : color.withOpacity(0.08),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: color.withOpacity(0.3),
+          width: 0.8,
+        ),
+      ),
+      child: Text(
+        tech,
+        style: TextStyle(
+          fontSize: 11,
+          color: _isDarkMode ? Colors.white : color,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+    );
+  }
+
+  // ✅ FUNCIÓN DEFINITIVA - SOLO USA DART:HTML
+  void _launchUrl(String url) {
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+      url = 'https://$url';
+    }
+    html.window.open(url, '_blank');
   }
 }
