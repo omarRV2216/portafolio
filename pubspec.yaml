@@ -57,7 +57,7 @@ flutter:
   assets:
     - assets/images/icon_flutter.png
     - assets/images/img.png
-    - assets/images/logocybac.png
+    - assets/images/logo.png
     - assets/images/footer_logo.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

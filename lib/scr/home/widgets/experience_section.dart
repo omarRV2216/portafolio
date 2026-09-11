@@ -157,7 +157,7 @@ class ExperienceSection extends StatelessWidget {
 
   Widget _buildLogo() {
     return Image.asset(
-      "images/footer_logo.png",
+      "assets/images/footer_logo.png",
       fit: BoxFit.contain,
       errorBuilder: (context, error, stackTrace) {
         return Container(
@@ -173,7 +173,7 @@ class ExperienceSection extends StatelessWidget {
   }
   Widget _buildLogo2() {
     return Image.asset(
-      "images/logocybac.png",
+      "images/logo.png",
       fit: BoxFit.contain,
       errorBuilder: (context, error, stackTrace) {
         return Container(
