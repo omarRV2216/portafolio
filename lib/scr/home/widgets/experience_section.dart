@@ -59,14 +59,14 @@ class ExperienceSection extends StatelessWidget {
                               "gestionando la comunicación directa con clientes, coordinando reuniones de levantamiento "
                               "de requerimientos y proponiendo iniciativas de mejora para optimizar la experiencia del usuario"
                               " y los procesos internos.",
-                          url: "https://ecobrush.mx",
+                          url: "https://grupocybac.com",
                           icon: Icons.work,
                           color: Colors.blue,
                           technologies: const [
-                            "Flutter",
-                            "Dart",
-                            "Firebase",
-                            "Git"
+                            "Laravel",
+                            "MVC",
+                            "Slack",
+                            "GitHub"
                           ],
                           period: '2025',
                         ),
