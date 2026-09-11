@@ -173,7 +173,7 @@ class ExperienceSection extends StatelessWidget {
   }
   Widget _buildLogo2() {
     return Image.asset(
-      "images/logo.png",
+      "assets/images/footer_logo2.png",
       fit: BoxFit.contain,
       errorBuilder: (context, error, stackTrace) {
         return Container(
@@ -181,7 +181,7 @@ class ExperienceSection extends StatelessWidget {
           child: const Icon(
             Icons.image_not_supported,
             color: Colors.grey,
-            size: 50,
+            size: 10,
           ),
         );
       },
