@@ -51,6 +51,33 @@ class ExperienceSection extends StatelessWidget {
                       Expanded(
                         child: ExperienceCard(
                           isDarkMode: isDarkMode,
+                          logo: _buildLogo3(),
+                          company: "All American Marketing and Services Business",
+                          position: "Desarrollador FullStack",
+                          description:
+                          "- Lideré múltiples proyectos de desarrollo web para clientes en Texas, Indiana, California y Carolina del Norte, trabajando de manera remota.\n"
+                              "- Dirigí reuniones de levantamiento de requerimientos y mantuve la comunicación directa con los clientes.\n"
+                              "- Coordiné la comunicación entre los equipos de desarrollo y marketing.\n"
+                              "- Propuse e implementé iniciativas de mejora continua para optimizar la experiencia del usuario y los procesos internos.",
+                          url: "https://tx-mf25.allamericanmbs.com/",
+                          icon: Icons.work,
+                          color: Colors.blue,
+                          technologies: const [
+                            "Laravel",
+                            "Teams",
+                            "Flutter",
+                            "Postman",
+                            "MariaDB",
+                            "DomPDF",
+                            "GitLab",
+                          ],
+                          period: '2025',
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Expanded(
+                        child: ExperienceCard(
+                          isDarkMode: isDarkMode,
                           logo: _buildLogo2(),
                           company: "Cybac TI",
                           position: "Desarrollador FullStack",
@@ -69,26 +96,6 @@ class ExperienceSection extends StatelessWidget {
                             "GitHub"
                           ],
                           period: '2025',
-                        ),
-                      ),
-                      const SizedBox(width: 20),
-                      Expanded(
-                        child: ExperienceCard(
-                          isDarkMode: isDarkMode,
-                          company: "Tesla",
-                          position: "Frontend Developer",
-                          period: "2020 - 2021",
-                          description:
-                          "Creé interfaces de usuario modernas y responsivas con React y Tailwind CSS, mejorando la experiencia de usuario.",
-                          url: "",
-                          icon: Icons.dashboard,
-                          color: Colors.green,
-                          technologies: const [
-                            "React",
-                            "JavaScript",
-                            "Tailwind",
-                            "Bootstrap"
-                          ],
                         ),
                       ),
                     ],
@@ -171,6 +178,7 @@ class ExperienceSection extends StatelessWidget {
       },
     );
   }
+
   Widget _buildLogo2() {
     return Image.asset(
       "assets/images/footer_logo2.png",
@@ -181,7 +189,24 @@ class ExperienceSection extends StatelessWidget {
           child: const Icon(
             Icons.image_not_supported,
             color: Colors.grey,
-            size: 10,
+            size: 40,
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildLogo3() {
+    return Image.asset(
+      "assets/images/american.png",
+      fit: BoxFit.contain,
+      errorBuilder: (context, error, stackTrace) {
+        return Container(
+          color: Colors.grey[300],
+          child: const Icon(
+            Icons.image_not_supported,
+            color: Colors.grey,
+            size: 40,
           ),
         );
       },

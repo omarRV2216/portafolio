@@ -57,6 +57,7 @@ flutter:
   assets:
     - assets/images/icon_flutter.png
     - assets/images/img.png
+    - assets/images/american.png
     - assets/images/footer_logo2.png
     - assets/images/footer_logo.png
   #   - images/a_dot_burr.jpeg

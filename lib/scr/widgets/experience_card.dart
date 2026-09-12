@@ -153,8 +153,6 @@ class ExperienceCard extends StatelessWidget {
                     height: 1.5,
                     color: isDarkMode ? Colors.grey[300] : Colors.grey[700],
                   ),
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 12),
                 Wrap(
