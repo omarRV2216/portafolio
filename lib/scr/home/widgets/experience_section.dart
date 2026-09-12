@@ -55,10 +55,11 @@ class ExperienceSection extends StatelessWidget {
                           company: "All American Marketing and Services Business",
                           position: "Desarrollador FullStack",
                           description:
-                          "- Lideré múltiples proyectos de desarrollo web para clientes en Texas, Indiana, California y Carolina del Norte, trabajando de manera remota.\n"
-                              "- Dirigí reuniones de levantamiento de requerimientos y mantuve la comunicación directa con los clientes.\n"
-                              "- Coordiné la comunicación entre los equipos de desarrollo y marketing.\n"
-                              "- Propuse e implementé iniciativas de mejora continua para optimizar la experiencia del usuario y los procesos internos.",
+                          "•Lideré múltiples proyectos de desarrollo web para clientes en Texas, Indiana, California y Carolina del Norte, trabajando de manera remota.\n\n"
+                               "• Dirigí reuniones de levantamiento de requerimientos y mantuve la comunicación directa con los clientes.\n\n"
+                              "• Coordiné la comunicación entre los equipos de desarrollo y marketing.\n\n"
+                              "• Colabore en la migracion de paginas obsoletas usando tegnologia React.\n\n"
+                              "• Propuse e implementé iniciativas de mejora continua para optimizar la experiencia del usuario y los procesos internos.",
                           url: "https://tx-mf25.allamericanmbs.com/",
                           icon: Icons.work,
                           color: Colors.blue,
@@ -66,9 +67,9 @@ class ExperienceSection extends StatelessWidget {
                             "Laravel",
                             "Teams",
                             "Flutter",
+                            "React",
                             "Postman",
                             "MariaDB",
-                            "DomPDF",
                             "GitLab",
                           ],
                           period: '2025',
@@ -82,10 +83,9 @@ class ExperienceSection extends StatelessWidget {
                           company: "Cybac TI",
                           position: "Desarrollador FullStack",
                           description:
-                          "Lideré el desarrollo y la mejora continua de la plataforma web de EcoBrush, "
-                              "gestionando la comunicación directa con clientes, coordinando reuniones de levantamiento "
-                              "de requerimientos y proponiendo iniciativas de mejora para optimizar la experiencia del usuario"
-                              " y los procesos internos.",
+                          "• Lideré el desarrollo y la mejora continua de la plataforma web de EcoBrush.\n\n"
+                              "• Gestioné la comunicación directa con clientes y coordiné reuniones de levantamiento de requerimientos.\n\n"
+                              "• Propuse e implementé iniciativas de mejora para optimizar la experiencia del usuario y los procesos internos.",
                           url: "https://grupocybac.com",
                           icon: Icons.work,
                           color: Colors.blue,
@@ -93,7 +93,7 @@ class ExperienceSection extends StatelessWidget {
                             "Laravel",
                             "MVC",
                             "Slack",
-                            "GitHub"
+                            "GitHub",
                           ],
                           period: '2025',
                         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portafolio/scr/utils/url_launcher_helper.dart';
+import 'package:readmore/readmore.dart';
 
 class ExperienceCard extends StatelessWidget {
   final bool isDarkMode;
@@ -146,12 +147,27 @@ class ExperienceCard extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 10),
-                Text(
+                ReadMoreText(
                   description,
+                  trimLines: 3,
+                  trimMode: TrimMode.Line,
+                  trimCollapsedText: 'Ver más',
+                  trimExpandedText: ' Ver menos',
+                  colorClickableText: color,
                   style: TextStyle(
                     fontSize: 13,
                     height: 1.5,
                     color: isDarkMode ? Colors.grey[300] : Colors.grey[700],
+                  ),
+                  moreStyle: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                    color: color,
+                  ),
+                  lessStyle: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                    color: color,
                   ),
                 ),
                 const SizedBox(height: 12),
