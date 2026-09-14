@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class HeroSection extends StatelessWidget {
+class HeroSection extends StatefulWidget {
   final bool isDarkMode;
   final VoidCallback onSeeProjects;
 
@@ -11,40 +11,94 @@ class HeroSection extends StatelessWidget {
   });
 
   @override
+  State<HeroSection> createState() => _HeroSectionState();
+}
+
+class _HeroSectionState extends State<HeroSection>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+  late final Animation<double> _jumpAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1500),
+    )..repeat(reverse: true); // sube y baja infinitamente
+
+    // Curva "easeInOut" para que el salto sea natural (frena arriba y abajo)
+    _jumpAnimation = Tween<double>(begin: 0, end: -20).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final isDarkMode = widget.isDarkMode;
+
     return Container(
       height: MediaQuery.of(context).size.height,
       color: isDarkMode ? Colors.grey[900] : Colors.white,
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(9),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            width: 200,
-            height: 200,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: isDarkMode
-                      ? Colors.white.withOpacity(0.1)
-                      : Colors.blue.withOpacity(0.2),
-                  blurRadius: 20,
-                  spreadRadius: 2,
+          // === AVATAR CON ANIMACIÓN DE SALTO ===
+          AnimatedBuilder(
+            animation: _jumpAnimation,
+            builder: (context, child) {
+              return Transform.translate(
+                offset: Offset(0, _jumpAnimation.value),
+                child: child,
+              );
+            },
+            child: Container(
+              width: 200,
+              height: 200,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: isDarkMode
+                        ? Colors.white.withOpacity(0.1)
+                        : Colors.blue.withOpacity(0.2),
+                    blurRadius: 20,
+                    spreadRadius: 2,
+                  ),
+                ],
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: isDarkMode
+                      ? [Colors.grey[800]!, Colors.grey[600]!]
+                      : [Colors.blue[300]!, Colors.blue[100]!],
                 ),
-              ],
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: isDarkMode
-                    ? [Colors.grey[800]!, Colors.grey[600]!]
-                    : [Colors.blue[300]!, Colors.blue[100]!],
               ),
-            ),
-            child: ClipOval(
-              child: Image.asset(
-                "images/img.png",
-                fit: BoxFit.cover,
+              child: ClipOval(
+                child: Center(
+                  child: Image.asset(
+                    "assets/images/fluticon.png",
+                    fit: BoxFit.cover,
+                    alignment: Alignment.center,
+                    width: double.infinity,
+                    height: double.infinity,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Container(
+                        color: Colors.red,
+                        child: const Center(
+                          child: Icon(Icons.image_not_supported),
+                        ),
+                      );
+                    },
+                  ),
+                ),
               ),
             ),
           ),
@@ -93,7 +147,7 @@ class HeroSection extends StatelessWidget {
               ),
               const SizedBox(height: 30),
               ElevatedButton(
-                onPressed: onSeeProjects,
+                onPressed: widget.onSeeProjects,
                 style: ElevatedButton.styleFrom(
                   padding:
                   const EdgeInsets.symmetric(horizontal: 40, vertical: 14),

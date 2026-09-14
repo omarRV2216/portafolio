@@ -27,7 +27,7 @@ class AboutSection extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           Text(
-            "Soy desarrollador fullstack apasionado la experiencia en desarrollar y "
+            "Soy desarrollador fullstack con experiencia en desarrollar y "
                 "crear aplicaciones multiplataforma. Me encanta resolver problemas complejos y "
                 "aprender nuevas tecnologías.",
             style: TextStyle(

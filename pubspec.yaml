@@ -61,6 +61,25 @@ flutter:
     - assets/images/american.png
     - assets/images/footer_logo2.png
     - assets/images/footer_logo.png
+    - assets/images/fluticon.png
+
+    - assets/icons/icon_api.png
+    - assets/icons/icon_flutter.png
+    - assets/icons/icon_github.png
+    - assets/icons/icon_gitlab.png
+    - assets/icons/icon_js.png
+    - assets/icons/icon_json.png
+    - assets/icons/icon_laravle.png
+    - assets/icons/icon_mariandb.png
+    - assets/icons/icon_mysql.png
+    - assets/icons/icon_php.png
+    - assets/icons/icon_postman.png
+    - assets/icons/icon_react.png
+    - assets/icons/icon_slack.png
+    - assets/icons/icon_tailwind.png
+    - assets/icons/icon_teams.png
+    - assets/icons/icon_webservice.png
+    - assets/icons/icons_boostrap.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
