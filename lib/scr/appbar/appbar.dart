@@ -68,7 +68,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.asset("images/icon_flutter.png"),
+                Image.asset("assets/images/icon_flutter.png"),
                 const Spacer(flex: 1),
                 Expanded(
                   flex: 3,
