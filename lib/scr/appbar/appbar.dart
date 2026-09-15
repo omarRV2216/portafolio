@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/url_launcher_helper.dart';
+
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<String> sections;
   final Function(String) onSectionSelected;
@@ -82,7 +84,42 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
 
-          // === BOTÓN TEMA (derecha) ===
+          Padding(
+            padding: const EdgeInsets.only(right: 4),
+            child: IconButton(
+              tooltip: "Linkedin",
+              icon: Image.asset(
+                "assets/icons/linke.png",
+                width: 22,
+                height: 22,
+                fit: BoxFit.contain,
+                errorBuilder: (context, error, stackTrace) {
+                  return Icon(Icons.code, color: fg, size: 22);
+                },
+              ),
+              onPressed: () {
+                launchUrl("https://www.linkedin.com/in/omar-aldair-rodriguez-vicente-a97785268/");
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 4),
+            child: IconButton(
+              tooltip: "GitHub",
+              icon: Image.asset(
+                "assets/icons/icon_github.png",
+                width: 22,
+                height: 22,
+                fit: BoxFit.contain,
+                errorBuilder: (context, error, stackTrace) {
+                  return Icon(Icons.code, color: fg, size: 22);
+                },
+              ),
+              onPressed: () {
+                launchUrl("https://github.com/omarRV2216");
+              },
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.only(right: 8),
             child: IconButton(
