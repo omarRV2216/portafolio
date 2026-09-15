@@ -84,6 +84,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
 
+          /*
           Padding(
             padding: const EdgeInsets.only(right: 4),
             child: IconButton(
@@ -120,6 +121,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               },
             ),
           ),
+          * */
+
+
           Padding(
             padding: const EdgeInsets.only(right: 8),
             child: IconButton(
