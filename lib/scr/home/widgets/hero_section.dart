@@ -25,9 +25,8 @@ class _HeroSectionState extends State<HeroSection>
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1500),
-    )..repeat(reverse: true); // sube y baja infinitamente
+    )..repeat(reverse: true);
 
-    // Curva "easeInOut" para que el salto sea natural (frena arriba y abajo)
     _jumpAnimation = Tween<double>(begin: 0, end: -20).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
@@ -50,7 +49,7 @@ class _HeroSectionState extends State<HeroSection>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // === AVATAR CON ANIMACIÓN DE SALTO ===
+
           AnimatedBuilder(
             animation: _jumpAnimation,
             builder: (context, child) {

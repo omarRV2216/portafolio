@@ -12,9 +12,10 @@ class ExperienceSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height,
+      constraints: const BoxConstraints(minHeight: 600),
+      width: double.infinity,
       color: isDarkMode ? Colors.grey[900] : Colors.white,
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -41,121 +42,99 @@ class ExperienceSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 30),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        child: ExperienceCard(
-                          isDarkMode: isDarkMode,
-                          logo: _buildLogo3(),
-                          company: "All American Marketing and Services Business",
-                          position: "Desarrollador FullStack",
-                          description:
-                          "•Lideré múltiples proyectos de desarrollo web para clientes en Texas, Indiana, California y Carolina del Norte, trabajando de manera remota.\n\n"
-                               "• Dirigí reuniones de levantamiento de requerimientos y mantuve la comunicación directa con los clientes.\n\n"
-                              "• Coordiné la comunicación entre los equipos de desarrollo y marketing.\n\n"
-                              "• Colabore en la migracion de paginas obsoletas usando tegnologia React.\n\n"
-                              "• Propuse e implementé iniciativas de mejora continua para optimizar la experiencia del usuario y los procesos internos.",
-                          url: "https://tx-mf25.allamericanmbs.com/",
-                          icon: Icons.work,
-                          color: Colors.blue,
-                          technologies: const [
-                            "Laravel",
-                            "Teams",
-                            "Flutter",
-                            "React",
-                            "Postman",
-                            "MariaDB",
-                            "GitLab",
-                          ],
-                          period: '2025',
-                        ),
-                      ),
-                      const SizedBox(width: 20),
-                      Expanded(
-                        child: ExperienceCard(
-                          isDarkMode: isDarkMode,
-                          logo: _buildLogo2(),
-                          company: "Cybac TI",
-                          position: "Desarrollador FullStack",
-                          description:
-                          "• Lideré el desarrollo y la mejora continua de la plataforma web de EcoBrush.\n\n"
-                              "• Gestioné la comunicación directa con clientes y coordiné reuniones de levantamiento de requerimientos.\n\n"
-                              "• Propuse e implementé iniciativas de mejora para optimizar la experiencia del usuario y los procesos internos.",
-                          url: "https://grupocybac.com",
-                          icon: Icons.work,
-                          color: Colors.blue,
-                          technologies: const [
-                            "Laravel",
-                            "MVC",
-                            "Slack",
-                            "GitHub",
-                          ],
-                          period: '2025',
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: ExperienceCard(
-                          isDarkMode: isDarkMode,
-                          logo: _buildLogo(),
-                          company: "EcoBrush - Page",
-                          position: "Desarrollador FullStack",
-                          description:
-                          "Lideré el desarrollo y la mejora continua de la plataforma web de EcoBrush, "
-                              "gestionando la comunicación directa con clientes, coordinando reuniones de levantamiento "
-                              "de requerimientos y proponiendo iniciativas de mejora para optimizar la experiencia del usuario"
-                              " y los procesos internos.",
-                          url: "https://ecobrush.mx",
-                          icon: Icons.work,
-                          color: Colors.blue,
-                          technologies: const [
-                            "laravel 10",
-                            "Php",
-                            "Livewire",
-                            "Boostrap",
-                            "DoomPDF",
-                          ],
-                          period: '2025',
-                        ),
-                      ),
-                      const SizedBox(width: 20),
-                      Expanded(
-                        child: ExperienceCard(
-                          isDarkMode: isDarkMode,
-                          logo: _buildLogo(),
-                          company: "EcoBrush - LandingPage",
-                          position: "Desarrollador Flutter Senior",
-                          period: "2023 - Presente",
-                          description:
-                          "Colaboré en el desarrollo de la landing page de EcoBrush, implementando un diseño moderno y"
-                              " responsive orientado a la conversión, optimizando el rendimiento de carga y"
-                              " garantizando una experiencia de usuario fluida en todos los dispositivos.",
-                          url: "https://ecobrush.mx",
-                          icon: Icons.work,
-                          color: Colors.blue,
-                          technologies: const [
-                            "Flutter",
-                            "Dart",
-                            "Firebase",
-                            "Git"
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
 
-                ],
+          const SizedBox(height: 30),
+
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: ExperienceCard(
+                  isDarkMode: isDarkMode,
+                  logo: _buildLogo3(),
+                  company: "All American Marketing and Services Business",
+                  position: "Desarrollador FullStack",
+                  description:
+                  "•Lideré múltiples proyectos de desarrollo web para clientes en Texas, Indiana, California y Carolina del Norte, trabajando de manera remota.\n\n"
+                      "• Dirigí reuniones de levantamiento de requerimientos y mantuve la comunicación directa con los clientes.\n\n"
+                      "• Coordiné la comunicación entre los equipos de desarrollo y marketing.\n\n"
+                      "• Colabore en la migracion de paginas obsoletas usando tegnologia React.\n\n"
+                      "• Propuse e implementé iniciativas de mejora continua para optimizar la experiencia del usuario y los procesos internos.",
+                  url: "https://tx-mf25.allamericanmbs.com/",
+                  icon: Icons.work,
+                  color: Colors.blue,
+                  technologies: const [
+                    "Laravel", "Teams", "Flutter", "React",
+                    "Postman", "MariaDB", "GitLab",
+                  ],
+                  period: '2025',
+                ),
               ),
-            ),
+              const SizedBox(width: 20),
+              Expanded(
+                child: ExperienceCard(
+                  isDarkMode: isDarkMode,
+                  logo: _buildLogo2(),
+                  company: "Cybac TI",
+                  position: "Desarrollador FullStack",
+                  description:
+                  "• Lideré el desarrollo y la mejora continua de la plataforma web de EcoBrush.\n\n"
+                      "• Gestioné la comunicación directa con clientes y coordiné reuniones de levantamiento de requerimientos.\n\n"
+                      "• Propuse e implementé iniciativas de mejora para optimizar la experiencia del usuario y los procesos internos.",
+                  url: "https://grupocybac.com",
+                  icon: Icons.work,
+                  color: Colors.blue,
+                  technologies: const ["Laravel", "MVC", "Slack", "GitHub"],
+                  period: '2025',
+                ),
+              ),
+            ],
+          ),
+
+          const SizedBox(height: 20),
+
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: ExperienceCard(
+                  isDarkMode: isDarkMode,
+                  logo: _buildLogo(),
+                  company: "EcoBrush - Page",
+                  position: "Desarrollador FullStack",
+                  description:
+                  "Lideré el desarrollo y la mejora continua de la plataforma web de EcoBrush, "
+                      "gestionando la comunicación directa con clientes, coordinando reuniones de levantamiento "
+                      "de requerimientos y proponiendo iniciativas de mejora para optimizar la experiencia del usuario"
+                      " y los procesos internos.",
+                  url: "https://ecobrush.mx",
+                  icon: Icons.work,
+                  color: Colors.blue,
+                  technologies: const [
+                    "laravel 10", "Php", "Livewire", "Boostrap", "DoomPDF",
+                  ],
+                  period: '2025',
+                ),
+              ),
+              const SizedBox(width: 20),
+              Expanded(
+                child: ExperienceCard(
+                  isDarkMode: isDarkMode,
+                  logo: _buildLogo(),
+                  company: "EcoBrush - LandingPage",
+                  position: "Desarrollador Flutter Senior",
+                  period: "2023 - Presente",
+                  description:
+                  "Colaboré en el desarrollo de la landing page de EcoBrush, implementando un diseño moderno y"
+                      " responsive orientado a la conversión, optimizando el rendimiento de carga y"
+                      " garantizando una experiencia de usuario fluida en todos los dispositivos.",
+                  url: "https://ecobrush.mx",
+                  icon: Icons.work,
+                  color: Colors.blue,
+                  technologies: const ["Flutter", "Dart", "Firebase", "Git"],
+                ),
+              ),
+            ],
           ),
         ],
       ),
