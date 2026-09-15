@@ -83,7 +83,7 @@ class _HeroSectionState extends State<HeroSection>
               child: ClipOval(
                 child: Center(
                   child: Image.asset(
-                    "assets/images/fluticon.png",
+                    "assets/images/img.png",
                     fit: BoxFit.cover,
                     alignment: Alignment.center,
                     width: double.infinity,
