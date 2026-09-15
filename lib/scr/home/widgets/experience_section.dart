@@ -103,15 +103,22 @@ class ExperienceSection extends StatelessWidget {
                   company: "EcoBrush - Page",
                   position: "Desarrollador FullStack",
                   description:
-                  "Lideré el desarrollo y la mejora continua de la plataforma web de EcoBrush, "
-                      "gestionando la comunicación directa con clientes, coordinando reuniones de levantamiento "
-                      "de requerimientos y proponiendo iniciativas de mejora para optimizar la experiencia del usuario"
-                      " y los procesos internos.",
+                  "• Lideré el desarrollo y la mejora continua de la plataforma web de EcoBrush, gestionando el ciclo completo de desarrollo.\n\n"
+                      "• Coordiné reuniones de levantamiento de requerimientos directamente con los clientes para definir alcances y prioridades.\n\n"
+                      "• Propuse e implementé iniciativas de mejora continua para optimizar la experiencia del usuario y los procesos internos.\n\n"
+                      "• Desarrollé módulos completos con Laravel 10, Livewire y Bootstrap, integrando generación de reportes PDF con DomPDF.\n\n"
+                      "• Gestioné la base de datos MariaDB y el control de versiones con GitLab.",
                   url: "https://ecobrush.mx",
                   icon: Icons.work,
                   color: Colors.blue,
                   technologies: const [
-                    "laravel 10", "Php", "Livewire", "Boostrap", "DoomPDF",
+                    "Laravel 10",
+                    "PHP",
+                    "Livewire",
+                    "Bootstrap",
+                    "DomPDF",
+                    "MariaDB",
+                    "GitLab",
                   ],
                   period: '2025',
                 ),
@@ -125,9 +132,11 @@ class ExperienceSection extends StatelessWidget {
                   position: "Desarrollador Flutter Senior",
                   period: "2023 - Presente",
                   description:
-                  "Colaboré en el desarrollo de la landing page de EcoBrush, implementando un diseño moderno y"
-                      " responsive orientado a la conversión, optimizando el rendimiento de carga y"
-                      " garantizando una experiencia de usuario fluida en todos los dispositivos.",
+                  "• Desarrollé la landing page oficial de EcoBrush con Flutter Web, implementando un diseño moderno y totalmente responsive.\n\n"
+                      "• Optimicé el rendimiento de carga reduciendo tiempos de renderizado y mejorando la puntuación de rendimiento.\n\n"
+                      "• Garanticé una experiencia de usuario fluida en dispositivos móviles, tablets y desktop.\n\n"
+                      "• Implementé el diseño orientado a conversión, alineado con la identidad visual de la marca.\n\n"
+                      "• Gestioné el despliegue y control de versiones con Git y Firebase Hosting.",
                   url: "https://ecobrush.mx",
                   icon: Icons.work,
                   color: Colors.blue,
