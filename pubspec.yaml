@@ -62,6 +62,7 @@ flutter:
     - assets/images/footer_logo2.png
     - assets/images/footer_logo.png
     - assets/images/fluticon.png
+    - assets/images/cfe_logo.png
 
     - assets/icons/icon_api.png
     - assets/icons/icon_flutter.png

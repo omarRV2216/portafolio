@@ -180,7 +180,7 @@ class _SkillsSectionState extends State<SkillsSection> {
               } else if (constraints.maxWidth >= 420) {
                 columns = 2;
               } else {
-                columns = 1;
+                columns = 2;
               }
 
               return GridView.builder(
