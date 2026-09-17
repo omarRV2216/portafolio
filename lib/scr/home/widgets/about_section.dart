@@ -13,57 +13,66 @@ class AboutSection extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height,
       color: isDarkMode ? Colors.grey[900] : Colors.white,
-      padding: const EdgeInsets.all(40),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            "Sobre mí",
-            style: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-              color: isDarkMode ? Colors.white : Colors.black,
-            ),
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(40),
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: MediaQuery.of(context).size.height - 80,
           ),
-          const SizedBox(height: 20),
-          Text(
-            "Soy desarrollador fullstack con experiencia en desarrollar y "
-                "crear aplicaciones multiplataforma. Me encanta resolver problemas complejos y "
-                "aprender nuevas tecnologías.",
-            style: TextStyle(
-              fontSize: 18,
-              color: isDarkMode ? Colors.white : Colors.black,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 30),
-          Row(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _buildInfoCard("2+", "Años de\nExperiencia",
-                  Icons.work_history, Colors.blue),
-              const SizedBox(width: 20),
-              _buildInfoCard("6+", "Proyectos\nCompletados",
-                  Icons.folder_open, Colors.purple),
-              const SizedBox(width: 20),
-              _buildInfoCard("5+", "Tecnologías\nDominadas",
-                  Icons.code, Colors.orange),
+              Text(
+                "Sobre mí",
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  color: isDarkMode ? Colors.white : Colors.black,
+                ),
+              ),
+              const SizedBox(height: 20),
+              Text(
+                "Soy desarrollador fullstack con experiencia en desarrollar y "
+                    "crear aplicaciones multiplataforma. Me encanta resolver problemas complejos y "
+                    "aprender nuevas tecnologías.",
+                style: TextStyle(
+                  fontSize: 18,
+                  color: isDarkMode ? Colors.white : Colors.black,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 30),
+              Wrap(
+                spacing: 10,
+                runSpacing: 10,
+                alignment: WrapAlignment.center,
+                children: [
+                  _buildInfoCard("2+", "Años de\nExperiencia",
+                      Icons.work_history, Colors.blue),
+                  const SizedBox(width: 20),
+                  _buildInfoCard("6+", "Proyectos\nCompletados",
+                      Icons.folder_open, Colors.purple),
+                  const SizedBox(width: 20),
+                  _buildInfoCard("5+", "Tecnologías\nDominadas",
+                      Icons.code, Colors.orange),
+                ],
+              ),
+              const SizedBox(height: 30),
+              Wrap(
+                spacing: 10,
+                runSpacing: 10,
+                alignment: WrapAlignment.center,
+                children: [
+                  _buildInterestChip("🚀 Innovación"),
+                  _buildInterestChip("💡 Aprendizaje continuo"),
+                  _buildInterestChip("🤝 Trabajo en equipo"),
+                  _buildInterestChip("🎯 Resolución de problemas"),
+                  _buildInterestChip("📱 Desarrollo multiplataforma"),
+                ],
+              ),
             ],
           ),
-          const SizedBox(height: 30),
-          Wrap(
-            spacing: 10,
-            runSpacing: 10,
-            alignment: WrapAlignment.center,
-            children: [
-              _buildInterestChip("🚀 Innovación"),
-              _buildInterestChip("💡 Aprendizaje continuo"),
-              _buildInterestChip("🤝 Trabajo en equipo"),
-              _buildInterestChip("🎯 Resolución de problemas"),
-              _buildInterestChip("📱 Desarrollo multiplataforma"),
-            ],
-          ),
-        ],
+        ),
       ),
     );
   }
