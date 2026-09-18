@@ -42,20 +42,38 @@ class AboutSection extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 30),
-              Wrap(
-                spacing: 10,
-                runSpacing: 10,
-                alignment: WrapAlignment.center,
-                children: [
-                  _buildInfoCard("2+", "Años de\nExperiencia",
-                      Icons.work_history, Colors.blue),
-                  const SizedBox(width: 20),
-                  _buildInfoCard("6+", "Proyectos\nCompletados",
-                      Icons.folder_open, Colors.purple),
-                  const SizedBox(width: 20),
-                  _buildInfoCard("5+", "Tecnologías\nDominadas",
-                      Icons.code, Colors.orange),
-                ],
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  // Calculamos el ancho disponible
+                  final isSmall = constraints.maxWidth < 600;
+                  // En pantallas chicas: 2 por fila. En grandes: 3 en una fila.
+                  final cardWidth = isSmall
+                      ? (constraints.maxWidth - 20) / 2  // 2 columnas con separación
+                      : (constraints.maxWidth - 40) / 3; // 3 columnas con separación
+
+                  return Wrap(
+                    alignment: WrapAlignment.center,
+                    spacing: 20,
+                    runSpacing: 20,
+                    children: [
+                      SizedBox(
+                        width: cardWidth,
+                        child: _buildInfoCard(
+                            "2+", "Años de\nExperiencia", Icons.work_history, Colors.blue),
+                      ),
+                      SizedBox(
+                        width: cardWidth,
+                        child: _buildInfoCard(
+                            "6+", "Proyectos\nCompletados", Icons.folder_open, Colors.purple),
+                      ),
+                      SizedBox(
+                        width: cardWidth,
+                        child: _buildInfoCard(
+                            "5+", "Tecnologías\nDominadas", Icons.code, Colors.orange),
+                      ),
+                    ],
+                  );
+                },
               ),
               const SizedBox(height: 30),
               Wrap(
