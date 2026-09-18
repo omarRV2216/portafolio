@@ -11,86 +11,79 @@ class AboutSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height,
+      width: double.infinity,
       color: isDarkMode ? Colors.grey[900] : Colors.white,
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.all(40),
-        child: ConstrainedBox(
-          constraints: BoxConstraints(
-            minHeight: MediaQuery.of(context).size.height - 80,
+      padding: const EdgeInsets.all(40),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "Sobre mí",
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+              color: isDarkMode ? Colors.white : Colors.black,
+            ),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Sobre mí",
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  color: isDarkMode ? Colors.white : Colors.black,
-                ),
-              ),
-              const SizedBox(height: 20),
-              Text(
-                "Soy desarrollador fullstack con experiencia en desarrollar y "
-                    "crear aplicaciones multiplataforma. Me encanta resolver problemas complejos y "
-                    "aprender nuevas tecnologías.",
-                style: TextStyle(
-                  fontSize: 18,
-                  color: isDarkMode ? Colors.white : Colors.black,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 30),
-              LayoutBuilder(
-                builder: (context, constraints) {
-                  // Calculamos el ancho disponible
-                  final isSmall = constraints.maxWidth < 600;
-                  // En pantallas chicas: 2 por fila. En grandes: 3 en una fila.
-                  final cardWidth = isSmall
-                      ? (constraints.maxWidth - 20) / 2  // 2 columnas con separación
-                      : (constraints.maxWidth - 40) / 3; // 3 columnas con separación
+          const SizedBox(height: 20),
+          Text(
+            "Soy desarrollador fullstack con experiencia en desarrollar y "
+                "crear aplicaciones multiplataforma. Me encanta resolver problemas complejos y "
+                "aprender nuevas tecnologías.",
+            style: TextStyle(
+              fontSize: 18,
+              color: isDarkMode ? Colors.white : Colors.black,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 30),
+          LayoutBuilder(
+            builder: (context, constraints) {
+              // Calculamos el ancho disponible
+              final isSmall = constraints.maxWidth < 600;
+              // En pantallas chicas: 2 por fila. En grandes: 3 en una fila.
+              final cardWidth = isSmall
+                  ? (constraints.maxWidth - 20) / 2  // 2 columnas con separación
+                  : (constraints.maxWidth - 40) / 3; // 3 columnas con separación
 
-                  return Wrap(
-                    alignment: WrapAlignment.center,
-                    spacing: 20,
-                    runSpacing: 20,
-                    children: [
-                      SizedBox(
-                        width: cardWidth,
-                        child: _buildInfoCard(
-                            "2+", "Años de\nExperiencia", Icons.work_history, Colors.blue),
-                      ),
-                      SizedBox(
-                        width: cardWidth,
-                        child: _buildInfoCard(
-                            "6+", "Proyectos\nCompletados", Icons.folder_open, Colors.purple),
-                      ),
-                      SizedBox(
-                        width: cardWidth,
-                        child: _buildInfoCard(
-                            "5+", "Tecnologías\nDominadas", Icons.code, Colors.orange),
-                      ),
-                    ],
-                  );
-                },
-              ),
-              const SizedBox(height: 30),
-              Wrap(
-                spacing: 10,
-                runSpacing: 10,
+              return Wrap(
                 alignment: WrapAlignment.center,
+                spacing: 20,
+                runSpacing: 20,
                 children: [
-                  _buildInterestChip("🚀 Innovación"),
-                  _buildInterestChip("💡 Aprendizaje continuo"),
-                  _buildInterestChip("🤝 Trabajo en equipo"),
-                  _buildInterestChip("🎯 Resolución de problemas"),
-                  _buildInterestChip("📱 Desarrollo multiplataforma"),
+                  SizedBox(
+                    width: cardWidth,
+                    child: _buildInfoCard(
+                        "2+", "Años de\nExperiencia", Icons.work_history, Colors.blue),
+                  ),
+                  SizedBox(
+                    width: cardWidth,
+                    child: _buildInfoCard(
+                        "6+", "Proyectos\nCompletados", Icons.folder_open, Colors.purple),
+                  ),
+                  SizedBox(
+                    width: cardWidth,
+                    child: _buildInfoCard(
+                        "5+", "Tecnologías\nDominadas", Icons.code, Colors.orange),
+                  ),
                 ],
-              ),
+              );
+            },
+          ),
+          const SizedBox(height: 30),
+          Wrap(
+            spacing: 10,
+            runSpacing: 10,
+            alignment: WrapAlignment.center,
+            children: [
+              _buildInterestChip("🚀 Innovación"),
+              _buildInterestChip("💡 Aprendizaje continuo"),
+              _buildInterestChip("🤝 Trabajo en equipo"),
+              _buildInterestChip("🎯 Resolución de problemas"),
+              _buildInterestChip("📱 Desarrollo multiplataforma"),
             ],
           ),
-        ),
+        ],
       ),
     );
   }
